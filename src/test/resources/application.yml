@@ -1,0 +1,33 @@
+server:
+  port: 3000
+logging:
+  level:
+    ROOT: INFO
+    org.hibernate.SQL: DEBUG
+    com.example.cqrs: DEBUG
+
+spring:
+  profiles:
+    active: 'test'
+  application:
+    name: 'CQRS Example'
+  datasource:
+    driver-class-name: org.h2.Driver
+    username:
+    password:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      show_sql: true
+      format_sql: true
+      use_sql_comments: false
+      type: all
+      disableConnectionTracking: true
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.htm
